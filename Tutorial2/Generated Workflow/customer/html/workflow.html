@@ -1,0 +1,166 @@
+﻿<!doctype html>
+<!-- Warning, this file is overwritten with each run of the package generation wizard -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="HandheldFriendly" content="True" />
+        <meta http-equiv="PRAGMA" content="NO-CACHE" />
+        <meta name="viewport" content="minimum-scale=.25, initial-scale=1" />
+
+        <script src="js/API.js"></script>
+        <script src="js/Callbacks.js"></script>
+        <script src="js/Camera.js"></script>
+        <script src="js/Certificate.js"></script>
+        <script src="js/Custom.js"></script>
+        <script src="js/ExternalResource.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/Resources.js"></script>
+        <script src="js/SUPStorage.js"></script>
+        <script src="js/Timezone.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/Workflow.js"></script>
+        <script src="js/WorkflowMessage.js"></script>
+        <link rel="stylesheet" href="css/Stylesheet.css" type="text/css" />      
+    </head>
+    <body onload="onWorkflowLoad();">
+    <div id="StartScreenDiv" sup_screen_title="Start" style="display: none" sup_menuitems="Cancel,Cancel,List Customers,List_Customers,Find Customers,Find_Customers" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"StartScreenTitle\" class=\"screenTitle\">Start</h3>"); }</script>
+        <ul id="StartScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="StartCancel" onclick="menuItemCallbackStartCancel();">Cancel</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="List Customers" id="StartList_Customers" onclick="menuItemCallbackStartList_Customers();">List Customers</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Find Customers" id="StartFind_Customers" onclick="menuItemCallbackStartFind_Customers();">Find Customers</a></li>
+        </ul>
+        <form style="margin: 0px;" name="StartForm" id="StartForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="StartForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfStartForm"></td></tr>
+            <tr>
+                <td colspan="2"><label for="uikCompanyName">Companyname:</label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input class="" type="text" id="uikCompanyName" sup_html_type="text"  value="%" sup_default_value="%" sup_max_length="32767" sup_num_of_decimals="0"/><span id="Start_uikCompanyName_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><label for="uikDummy">Dummy for 2.1.3 bug</label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input class="" type="text" id="uikDummy" sup_html_type="text"  sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="Start_uikDummy_help" class="help"></span>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfStartForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen Start -->
+    <div id="CustomerDetailScreenDiv" sup_screen_title="CustomerDetail" style="display: none" sup_menuitems="Back,Back" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"CustomerDetailScreenTitle\" class=\"screenTitle\">CustomerDetail</h3>"); }</script>
+        <ul id="CustomerDetailScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Back" id="CustomerDetailBack" onclick="menuItemCallbackCustomerDetailBack();">Back</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="CustomerDetailCancel" onclick="menuItemCallbackCustomerDetailCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="CustomerDetailForm" id="CustomerDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="CustomerDetailForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfCustomerDetailForm"></td></tr>
+            <tr>
+                <td class="left"><label for="Customer_id_attribKey">Id:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="Customer_id_attribKey" sup_html_type="number"  sup_max_length="32767" sup_min_value="-2147483648" sup_max_value="2147483647" sup_num_of_decimals="0" sup_valid_msg="Invalid data input for field Id:" readonly="readonly"/><span id="CustomerDetail_Customer_id_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_fname_attribKey">Fname:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_fname_attribKey" sup_html_type="text"  sup_max_length="15" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_fname_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_lname_attribKey">Lname:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_lname_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_lname_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_address_attribKey">Address:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_address_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_address_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_city_attribKey">City:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_city_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_city_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_state_attribKey">State:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_state_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_state_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_zip_attribKey">Zip:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_zip_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_zip_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_phone_attribKey">Phone:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_phone_attribKey" sup_html_type="text"  sup_max_length="12" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_phone_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="Customer_company_name_attribKey">Company name:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="Customer_company_name_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_company_name_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfCustomerDetailForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen CustomerDetail -->
+    <div id="CustomerScreenDiv" sup_screen_title="Customer" style="display: none" sup_menuitems="Submit,Submit,Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"CustomerScreenTitle\" class=\"screenTitle\">Customer</h3>"); }</script>
+        <ul id="CustomerScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Submit" id="CustomerSubmit" onclick="menuItemCallbackCustomerSubmit();">Submit</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="CustomerCancel" onclick="menuItemCallbackCustomerCancel();">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="CustomerForm" id="CustomerForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="CustomerForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfCustomerForm"></td></tr>
+            <tr><td colspan="2"><ul class="listview" id="Customer" wrap_data="false" cells="CustomerDetail&?null&?&?false&?Customer_company_name_attribKey&,100&,company_name&,normal&,TEXT&, &, &;Customer_phone_attribKey&,100&,phone&,normal&,TEXT&, &, "></ul></td></tr>
+          <tr><td colspan="2" id="bottomOfCustomerForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen Customer -->
+    <div id="ErrorListScreenDiv" sup_screen_title="ErrorList" style="display: none" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"ErrorListScreenTitle\" class=\"screenTitle\">ErrorList</h3>"); }</script>
+        <ul id="ErrorListScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="ErrorListCancel" onclick="menuItemCallbackErrorListCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="ErrorListForm" id="ErrorListForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="ErrorListForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfErrorListForm"></td></tr>
+            <tr><td colspan="2"><ul class="listview" id="ErrorLogs" wrap_data="false" cells="ErrorDetail&?null&?&?false&?ErrorLogMessage&,100&,&,normal&,&, &, "></ul></td></tr>
+          <tr><td colspan="2" id="bottomOfErrorListForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen ErrorList -->
+    <div id="ErrorDetailScreenDiv" sup_screen_title="ErrorDetail" style="display: none" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"ErrorDetailScreenTitle\" class=\"screenTitle\">ErrorDetail</h3>"); }</script>
+        <ul id="ErrorDetailScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="ErrorDetailCancel" onclick="menuItemCallbackErrorDetailCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="ErrorDetailForm" id="ErrorDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="ErrorDetailForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfErrorDetailForm"></td></tr>
+            <tr><td colspan="2"><ul class="listview" id="ErrorLogMessageAsList" wrap_data="false" cells="&?null&?&?false&?name&,30&,Name&,normal&,&, &, &,value&,70&,Value&,normal&,&, &, "></ul></td></tr>
+          <tr><td colspan="2" id="bottomOfErrorDetailForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen ErrorDetail -->
+    <div id="blankScreenDiv" style="display: none">
+    </div>
+    </body>
+</html>

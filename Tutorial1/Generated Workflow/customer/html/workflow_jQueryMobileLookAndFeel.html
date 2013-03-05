@@ -1,0 +1,528 @@
+﻿<!doctype html>
+<!-- Warning, this file is overwritten with each run of the package generation wizard -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="HandheldFriendly" content="True" />
+        <meta http-equiv="PRAGMA" content="NO-CACHE" />
+        <meta name="viewport" content="minimum-scale=.25, initial-scale=1" />
+
+        <script src="js/API.js"></script>
+        <script src="js/Callbacks.js"></script>
+        <script src="js/Camera.js"></script>
+        <script src="js/Certificate.js"></script>
+        <script src="js/Custom.js"></script>
+        <script src="js/ExternalResource.js"></script>
+        <script src="js/jquery/jquery-1.6.4.js"></script>
+        <script src="js/jquery/jquery.mobile-1.0.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/Resources.js"></script>
+        <script src="js/SUPStorage.js"></script>
+        <script src="js/Timezone.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/widgets/sy.ui.iphone.customButton.js"></script>
+        <script src="js/widgets/sy.ui.iphone.customFixPositionForm.js"></script>
+        <script src="js/widgets/sy.ui.iphone.iscroll.js"></script>
+        <script src="js/widgets/sy.ui.iphone.listview.js"></script>
+        <script src="js/widgets/sy.ui.iphone.menuBars.js"></script>
+        <script src="js/widgets/sy.ui.iphone.menus.js"></script>
+        <script src="js/widgets/sy.ui.iphone.picker.js"></script>
+        <script src="js/widgets/sy.ui.iphone.signature.js"></script>
+        <script src="js/widgets/sy.ui.iphone.util.js"></script>
+        <script src="js/Workflow.js"></script>
+        <script src="js/WorkflowMessage.js"></script>
+        <link rel="stylesheet" href="css/iphone/actionSheet.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/customButton.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/listview.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/picker.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/signature.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/Stylesheet.css" type="text/css" />
+        <link rel="stylesheet" href="css/jquery/jquery.mobile-1.0.css" type="text/css" />
+        <link rel="stylesheet" href="css/jquery/jquery.mobile.fix.css" type="text/css" />
+   	
+       	<script>
+       	    function jqueryMobileOnPageLoad() {
+       	        if ( isIPad() ) {
+       	      	    var vp = $( "meta[name='viewport']" );
+             	    vp.attr( "content", 'minimum-scale=.25, initial-scale=' +  parseFloat( window.innerWidth / screen.width ) + '"' );
+                }
+                else if ( !isIOS() ) {
+       	      	    var vp = $( "meta[name='viewport']" );
+             	    vp.attr( "content", 'minimum-scale=1, maximum-scale=1' );
+                }
+               $.mobile.changePage( $('#'+ getCurrentScreen()+'ScreenDiv'), { reverse:false, changeHash: false });
+            }
+        </script>
+       	
+      
+        <style type="text/css">
+           .Customer_alternateColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .Customer_defaultColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorList_alternateColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorList_defaultColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorDetail_alternateColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorDetail_defaultColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+        </style>
+     </head>
+    <body onload="onWorkflowLoad();">
+<div data-role="page"  data-theme='b'  id="dummy"></div> <!--jquery mobile always show fisrt page, add a dummy empty page; -->
+     
+    <div data-role="page" data-theme='b' id="StartScreenDiv" sup_screen_title="Start" style="" sup_menuitems="Cancel,Cancel,List Customers,List_Customers" sup_okaction="doCancelAction()">
+        
+      <div data-role="header"  data-theme="b" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="StartScreenDivCancel" name="Cancel" onclick="menuItemCallbackStartCancel();"> Cancel</a>
+       <h1>Start</h1> 
+       <a href="javascript:void(0)" id="StartScreenDivList_Customers" name="List Customers" onclick="menuItemCallbackStartList_Customers();"> List Customers</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="StartForm" id="StartForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="StartForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfStartForm"></div>
+           <div class="customBottomOfFormStyle"   id="bottomOfStartForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="b" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen Start -->
+     
+    <div data-role="page" data-theme='b' id="CustomerDetailScreenDiv" sup_screen_title="CustomerDetail" style="" sup_menuitems="Back,Back" sup_okaction="doCancelAction()">
+        
+      <div data-role="header"  data-theme="b" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="CustomerDetailScreenDivCancel" name="Cancel" onclick="menuItemCallbackCustomerDetailCancel();"> Cancel</a>
+       <h1>CustomerDetail</h1> 
+       <a href="javascript:void(0)" id="CustomerDetailScreenDivBack" name="Back" onclick="menuItemCallbackCustomerDetailBack();"> Back</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="CustomerDetailForm" id="CustomerDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="CustomerDetailForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfCustomerDetailForm"></div> 
+          <div class="editbox">
+    
+          <label class="left" for="Customer_id_attribKey">Id:</label>
+            <input class="right" type="number" id="Customer_id_attribKey" sup_html_type="number"  sup_max_length="32767" sup_min_value="-2147483648" sup_max_value="2147483647" sup_num_of_decimals="0" sup_valid_msg="Invalid data input for field Id:" readonly="readonly"/><span id="CustomerDetail_Customer_id_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_fname_attribKey">Fname:</label>
+            <input class="right" type="text" id="Customer_fname_attribKey" sup_html_type="text"  sup_max_length="15" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_fname_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_lname_attribKey">Lname:</label>
+            <input class="right" type="text" id="Customer_lname_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_lname_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_address_attribKey">Address:</label>
+            <input class="right" type="text" id="Customer_address_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_address_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_city_attribKey">City:</label>
+            <input class="right" type="text" id="Customer_city_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_city_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_state_attribKey">State:</label>
+            <input class="right" type="text" id="Customer_state_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_state_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_zip_attribKey">Zip:</label>
+            <input class="right" type="text" id="Customer_zip_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_zip_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_phone_attribKey">Phone:</label>
+            <input class="right" type="text" id="Customer_phone_attribKey" sup_html_type="text"  sup_max_length="12" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_phone_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Customer_company_name_attribKey">Company name:</label>
+            <input class="right" type="text" id="Customer_company_name_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="CustomerDetail_Customer_company_name_attribKey_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfCustomerDetailForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="b" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen CustomerDetail -->
+     
+    <div data-role="page" data-theme='b' id="CustomerScreenDiv" sup_screen_title="Customer" style="" sup_menuitems="Submit,Submit,Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        
+      <div data-role="header"  data-theme="b" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="CustomerScreenDivCancel" name="Cancel" onclick="menuItemCallbackCustomerCancel();"> Cancel</a>
+       <h1>Customer</h1> 
+       <a href="javascript:void(0)" id="CustomerScreenDivSubmit" name="Submit" onclick="menuItemCallbackCustomerSubmit();"> Submit</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="CustomerForm" id="CustomerForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="CustomerForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfCustomerForm"></div>
+          <div class="listview" screen="Customer" id="Customer" wrap_data="false">
+            <script>
+                         var field0 = {id:'Customer_company_name_attribKey', name:'company_name' , width:100, height:0, static:true ,font:'normal',dataType:'TEXT'};
+                         var line0=[ field0 ] ;
+
+                         var field1 = {id:'Customer_phone_attribKey', name:'phone' , width:100, height:0, static:true ,font:'normal',dataType:'TEXT'};
+                         var line1=[ field1 ] ;
+
+                         var lines =[line0,line1];
+                         $('div[screen="Customer"]#Customer').syListview ({
+                                   lines:lines,
+                                   onItemSelected: itemSelected,
+                                   showViewHeader:false,
+                                   onEmptyList:"",
+                                   alternateColor:"null",
+                                   reversedColor:"",
+                                   inset:"false",
+                                   isLocalizedDisplay:"false",
+                                   createHeaderLater:false               
+                         });
+                  
+                         if (isBlackBerry()) {
+                             $('div[screen="Customer"]#Customer').before('<div class="editbox" style="display:none"> <input type="text"/> </div>');
+                             $('div').live('pageshow',function(event, ui){
+                                screenToShow=  $( event.currentTarget).attr('id');
+                    		    screenToHide =  ui.prevPage.attr('id');
+	                            if (   screenToShow == 'CustomerScreenDiv' ) {
+	                                setPageHeight( $.mobile.activePage );
+                         		    $('div[screen="Customer"]#Customer').syListview( 'updateOnVisible', [screenToShow , "true"]);
+                                }else if ( screenToHide == 'CustomerScreenDiv' ) {
+	                                $('div[screen="Customer"]#Customer').syListview( 'updateOnVisible', [screenToHide  , "false"] );
+	                            }
+	                         }); 
+                          }                       
+                         UIUpdateHandlers.push( {screenName: 'Customer',
+                                                widgetName: 'div.listview',
+                                                callback: function( data ) {
+                                                   $('div[screen="Customer"]#Customer').syListview( 'updateUIFromWorkFlowMessage', [data] );
+       
+       return true;
+                                                      } }
+                            );
+                     
+                     
+                        function itemSelected( target ) {
+                            if (isBlackBerry()) {
+                                 navigateForward("CustomerDetail",  target.id );
+                                 return ;
+                            }  
+                             navigateForward("CustomerDetail",  target.id );                             
+                        }
+             </script>
+           </div>
+ 
+
+           <div class="customBottomOfFormStyle"   id="bottomOfCustomerForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="b" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen Customer -->
+     
+    <div data-role="page" data-theme='b' id="ErrorListScreenDiv" sup_screen_title="ErrorList" style="" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        
+      <div data-role="header"  data-theme="b" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="ErrorListScreenDivCancel" name="Cancel" onclick="menuItemCallbackErrorListCancel();"> Cancel</a>
+       <h1>ErrorList</h1> 
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="ErrorListForm" id="ErrorListForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="ErrorListForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfErrorListForm"></div>
+          <div class="listview" screen="ErrorList" id="ErrorLogs" wrap_data="false">
+            <script>
+                         var field0 = {id:'ErrorLogMessage', name:'ErrorLogMessage' , width:100, height:0, static:true ,font:'normal',dataType:''};
+                         var line0=[ field0 ] ;
+
+                         var lines =[line0];
+                         $('div[screen="ErrorList"]#ErrorLogs').syListview ({
+                                   lines:lines,
+                                   onItemSelected: itemSelected,
+                                   showViewHeader:false,
+                                   onEmptyList:"",
+                                   alternateColor:"null",
+                                   reversedColor:"",
+                                   inset:"false",
+                                   isLocalizedDisplay:"false",
+                                   createHeaderLater:false               
+                         });
+                  
+                         if (isBlackBerry()) {
+                             $('div[screen="ErrorList"]#ErrorLogs').before('<div class="editbox" style="display:none"> <input type="text"/> </div>');
+                             $('div').live('pageshow',function(event, ui){
+                                screenToShow=  $( event.currentTarget).attr('id');
+                    		    screenToHide =  ui.prevPage.attr('id');
+	                            if (   screenToShow == 'ErrorLogsScreenDiv' ) {
+	                                setPageHeight( $.mobile.activePage );
+                         		    $('div[screen="ErrorList"]#ErrorLogs').syListview( 'updateOnVisible', [screenToShow , "true"]);
+                                }else if ( screenToHide == 'ErrorLogsScreenDiv' ) {
+	                                $('div[screen="ErrorList"]#ErrorLogs').syListview( 'updateOnVisible', [screenToHide  , "false"] );
+	                            }
+	                         }); 
+                          }                       
+                         UIUpdateHandlers.push( {screenName: 'ErrorList',
+                                                widgetName: 'div.listview',
+                                                callback: function( data ) {
+                                                   $('div[screen="ErrorList"]#ErrorLogs').syListview( 'updateUIFromWorkFlowMessage', [data] );
+       
+       return true;
+                                                      } }
+                            );
+                     
+                     
+                        function itemSelected( target ) {
+                            if (isBlackBerry()) {
+                                 navigateForward("ErrorDetail",  target.id );
+                                 return ;
+                            }  
+                             navigateForward("ErrorDetail",  target.id );                             
+                        }
+             </script>
+           </div>
+ 
+
+           <div class="customBottomOfFormStyle"   id="bottomOfErrorListForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="b" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen ErrorList -->
+     
+    <div data-role="page" data-theme='b' id="ErrorDetailScreenDiv" sup_screen_title="ErrorDetail" style="" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        
+      <div data-role="header"  data-theme="b" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="ErrorDetailScreenDivCancel" name="Cancel" onclick="menuItemCallbackErrorDetailCancel();"> Cancel</a>
+       <h1>ErrorDetail</h1> 
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="ErrorDetailForm" id="ErrorDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="ErrorDetailForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfErrorDetailForm"></div>
+          <div class="listview" screen="ErrorDetail" id="ErrorLogMessageAsList" wrap_data="false">
+            <script>
+                         var field0 = {id:'name', name:'Name' , width:30, height:0, static:true ,font:'normal',dataType:''};
+                         var field1 = {id:'value', name:'Value' , width:70, height:0, static:true ,font:'normal',dataType:''};
+                         var line0=[ field0,field1 ] ;
+
+                         var lines =[line0];
+                         $('div[screen="ErrorDetail"]#ErrorLogMessageAsList').syListview ({
+                                   lines:lines,
+                                   onItemSelected: null,
+                                   showViewHeader:false,
+                                   onEmptyList:"",
+                                   alternateColor:"null",
+                                   reversedColor:"",
+                                   inset:"false",
+                                   isLocalizedDisplay:"false",
+                                   createHeaderLater:false               
+                         });
+                  
+                         if (isBlackBerry()) {
+                             $('div[screen="ErrorDetail"]#ErrorLogMessageAsList').before('<div class="editbox" style="display:none"> <input type="text"/> </div>');
+                             $('div').live('pageshow',function(event, ui){
+                                screenToShow=  $( event.currentTarget).attr('id');
+                    		    screenToHide =  ui.prevPage.attr('id');
+	                            if (   screenToShow == 'ErrorLogMessageAsListScreenDiv' ) {
+	                                setPageHeight( $.mobile.activePage );
+                         		    $('div[screen="ErrorDetail"]#ErrorLogMessageAsList').syListview( 'updateOnVisible', [screenToShow , "true"]);
+                                }else if ( screenToHide == 'ErrorLogMessageAsListScreenDiv' ) {
+	                                $('div[screen="ErrorDetail"]#ErrorLogMessageAsList').syListview( 'updateOnVisible', [screenToHide  , "false"] );
+	                            }
+	                         }); 
+                          }                       
+                         UIUpdateHandlers.push( {screenName: 'ErrorDetail',
+                                                widgetName: 'div.listview',
+                                                callback: function( data ) {
+                                                   $('div[screen="ErrorDetail"]#ErrorLogMessageAsList').syListview( 'updateUIFromWorkFlowMessage', [data] );
+       
+       return true;
+                                                      } }
+                            );
+                     
+                     
+                        function itemSelected( target ) {                             
+                        }
+             </script>
+           </div>
+ 
+
+           <div class="customBottomOfFormStyle"   id="bottomOfErrorDetailForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="b" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen ErrorDetail -->
+    <div id="blankScreenDiv" style="display: none">
+    </div>
+
+   <script>
+   
+     iScroller = null;
+     
+     $(document).bind("mobileinit", function() {
+         $.mobile.ajaxFormsEnabled = false;
+         $.mobile.pushStateEnabled=false;
+     });
+
+     $(document).ready( function() 
+     {
+         if (isBlackBerry6NonTouchScreen()) {
+             var inputs = document.getElementsByTagName('input');
+             var i;
+             for ( i = 0; i <inputs.length; i++) {
+                 var type  =  inputs[i].getAttribute('type');
+                 if ( type === 'date' || type === 'time' || type === 'datetime-local') {
+                     inputs[i].setAttribute('type', 'text');
+                 }
+             }
+         }
+         else {
+             if (isBlackBerry7()) {
+                 var theme = $('div[data-role="page"]').first().attr('data-theme');
+                 $('input[type="date"]').attr('data-role', 'none');
+                 $('input[type="date"]').addClass("ui-body-" + theme + " ui-input-text ui-corner-all ui-shadow-inset ui-focus");
+                 $('input[type="time"]').attr('data-role', 'none');
+                 $('input[type="time"]').addClass("ui-body-" + theme + " ui-input-text ui-corner-all ui-shadow-inset ui-focus");
+                 $('input[type="datetime-local"]').attr('data-role', 'none');
+                 $('input[type="datetime-local"]').addClass("ui-body-" + theme + " ui-input-text ui-corner-all ui-shadow-inset ui-focus");       		        	
+             }
+             else {
+                 $('input[type="date"]:[readonly="readonly"]').attr('disabled','true');
+                 $('input[type="time"]:[readonly="readonly"]').attr('disabled','true');
+                 $('input[type="datetime-local"]:[readonly="readonly"]').attr('disabled','true');
+
+                 /* set date type to readonly on iphone, the virtual keyboard will not show up, only our datepicker */
+                 $('input[type="date"]').attr('readonly','readonly');
+                 $('input[type="time"]').attr('readonly','readonly')
+                 $('input[type="datetime-local"]').attr('readonly','readonly')
+
+                 $('input[type="date"]').datePicker();
+                 $('input[type="time"]').timePicker();
+                 $('input[type="datetime-local"]').dateTimePicker();
+                 }
+
+                 $('input[type="text"]:[readonly="readonly"]').attr('disabled','true');
+                 $('input[type="number"]:[readonly="readonly"]').attr('disabled','true');
+             }
+
+             $('div.signature input:hidden').signature();
+             $('button').customButton();
+
+             if (isBlackBerry() || isAndroid()) {
+                 /* we do not need header and footer for Blackberry */
+                 $('div[data-role="header"]').css('display', 'none');
+                 $('div[data-role="footer"]').css('display', 'none');
+
+                 UIScreenListeners.push( function(screenObj) {  
+                     if (screenObj.screenToShow &&  screenObj.screenToHide) {
+                         $.mobile.changePage( $( '#' +  screenObj.screenToShow +'ScreenDiv'),
+                         {  reverse:screenObj.isNavigateBack, changeHash: false });
+                     }
+                 });
+             } 
+             else {
+                 iScroller = new iScroll();
+
+                 // JQ only init pages when they are active on the first time,
+                 // so we have to create the widget only after the page was initialized.
+                 $('div[data-role="page"]' ).live( 'pagecreate',function(event) {
+                     $('div.[data-role="header"]', this ).menuHeaderBar();
+                     $('div.[data-role="footer"]', this ).menuFooterBar();
+                 });
+          
+                 UIScreenListeners.push( function(screenObj) {
+                     if (screenObj.screenToShow &&  screenObj.screenToHide ) {
+                         $.mobile.changePage( $( '#' +  screenObj.screenToShow +'ScreenDiv'), 
+                         {  reverse:screenObj.isNavigateBack, changeHash: false });
+                     }
+                 });
+
+                 UIFrameResizeHandlers.push( function( ) {
+                     $('div.[data-role="header"]',$.mobile.activePage[0] ).menuHeaderBar("positionButtons");
+                     $('div.[data-role="footer"]',$.mobile.activePage[0] ).menuFooterBar("positionButtons");
+                 });
+             }
+
+             // CR#698698-1
+             $.mobile.pageContainer.bind('pagechange',function( event, data ) {
+                 var hasListview =  $.mobile.activePage.find('div.listview').length> 0;
+                 if ( !data.options.reverse && hasListview && iScroller !== null ) {
+                     iScroller.setPosition(0,0,true);
+                 }
+             });
+
+             $('div').live('pageshow',function(event, ui) {
+
+             var pageId =  $( event.currentTarget).attr('id');
+             if (isBlackBerry() || isAndroid()) {
+                 var cssh = $.mobile.activePage.css("height");
+                 if (parseInt( cssh ) < screen.height) {
+                     setPageHeight( $.mobile.activePage );
+                 }
+             }
+             else { 
+                 // this is for iOS 
+                 showScroller(iScroller , false,ui.prevPage.attr('id') );
+                 if ($( event.currentTarget).attr('data-role')=='dialog') {
+                     showDialog(iScroller, $( event.currentTarget));
+                 }
+                 else {
+                     $('div.[data-role="header"]', this ).menuHeaderBar("positionButtons");
+                     $('div.[data-role="footer"]', this ).menuFooterBar("positionButtons");
+                     showScroller(iScroller ,true,pageId);
+                 }
+             }
+             // CR693207-1 - customAfterShowScreen was not being fired.
+             // CR 693214-1 prevent calling customAfterShowScreen with "dummy" as the screen to hide.
+             // CR 693214-2 prevent the call when opening the Choice control
+             if (pageId != undefined && ui.prevPage.attr('id') != undefined) {
+                 var screenToShow = pageId.replace("ScreenDiv","");
+                 var screenToHide = ui.prevPage.attr('id').replace("ScreenDiv","");
+                 setCurrentScreen( screenToShow );
+                 customAfterShowScreen( screenToShow,(screenToHide === "dummy")?"":screenToHide);
+             }
+             if (isAndroid()) {
+                 $.mobile.activePage.find('textarea[readonly="readonly"]').keyup();
+             }
+        });
+     });
+
+ </script>
+
+
+    </body>
+</html>

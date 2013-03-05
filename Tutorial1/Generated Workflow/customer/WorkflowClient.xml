@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="WorkflowClient.xsd" >
+  <Globals>
+    <DefaultScreens activation="" credentials=""/>
+  </Globals>
+  <Triggers> 
+    <Actions>
+      <Action name="List_Customers" sourcescreen="Start" targetscreen="Customer" errorscreen="ErrorList" errorlogskey="ErrorLogs" errorlogmessagekey="ErrorLogMessage" errorlogmessageaslistkey="ErrorLogMessageAsList">
+        <Methods>
+          <Method name="findAll" type="search" mbo="Customer" package="Tutorial1:1.0" showCredScreenOnAuthFailure="true" >
+            <InputBinding optype="none" opname="findAll" generateOld="false">
+            </InputBinding>
+            <OutputBinding generateOld="true">			    
+              <Mapping workflowKey="Customer" workflowType="list" mboType="list">
+                 <Mapping workflowKey="Customer_id_attribKey" workflowType="number" attribName="id" mboType="int"/>
+                 <Mapping workflowKey="Customer_fname_attribKey" workflowType="text" attribName="fname" mboType="string"/>
+                 <Mapping workflowKey="Customer_lname_attribKey" workflowType="text" attribName="lname" mboType="string"/>
+                 <Mapping workflowKey="Customer_address_attribKey" workflowType="text" attribName="address" mboType="string"/>
+                 <Mapping workflowKey="Customer_city_attribKey" workflowType="text" attribName="city" mboType="string"/>
+                 <Mapping workflowKey="Customer_state_attribKey" workflowType="text" attribName="state" mboType="string"/>
+                 <Mapping workflowKey="Customer_zip_attribKey" workflowType="text" attribName="zip" mboType="string"/>
+                 <Mapping workflowKey="Customer_phone_attribKey" workflowType="text" attribName="phone" mboType="string"/>
+                 <Mapping workflowKey="Customer_company_name_attribKey" workflowType="text" attribName="company_name" mboType="string"/>
+              </Mapping>
+
+            </OutputBinding>
+          </Method>
+        </Methods>
+      </Action>
+      <Action name="Submit" sourcescreen="Customer" targetscreen="" errorscreen="" asyncRequestErrorScreen="" errorNotificationSubjectLine="" errorNotificationFromLine="" asyncRequestErrorlogs="" asyncRequestErrorLogMessage="" asyncRequestErrorLogMessageAsList="">
+        <Methods>
+          <Method type="replay" mbo="Customer" package="Tutorial1:1.0" showCredScreenOnAuthFailure="true" >
+            <InputBinding optype="none" generateOld="false">			    
+                              <Value sourceType="Key" workflowKey="Customer" mboType="list">
+                <InputBinding optype="none">
+                  <Value sourceType="Key" workflowKey="Customer_id_attribKey" attribName="id" mboType="int"/>
+                  <Value sourceType="Key" workflowKey="Customer_fname_attribKey" attribName="fname" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="Customer_lname_attribKey" attribName="lname" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="Customer_address_attribKey" attribName="address" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="Customer_city_attribKey" attribName="city" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="Customer_state_attribKey" attribName="state" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="Customer_zip_attribKey" attribName="zip" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="Customer_phone_attribKey" attribName="phone" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="Customer_company_name_attribKey" attribName="company_name" mboType="string"/>
+                </InputBinding>
+              </Value>
+
+            </InputBinding>
+            <OutputBinding/>
+          </Method>
+        </Methods>
+      </Action>
+    </Actions>
+    <Notifications>
+    </Notifications>
+  </Triggers>
+</Workflow>
+        

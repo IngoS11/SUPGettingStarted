@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uepmodels:EMODiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbcDatasourceExtension="platform:/resource/com.sybase.uep.datasource/model/JDBCOperationDefinition.ecore" xmlns:uepmodels="platform:/resource/com.sybase.uep.tooling.models/model/uepModels.ecore" modelVersion="2.1.3">
+  <mObjects name="Customer" id="_WhHjcYXbEeKeY7Z_N0pfog">
+    <attributes name="id" type="INT" nullable="false" primaryKey="true" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.0">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="INT"/>
+    </attributes>
+    <attributes name="fname" type="STRING" length="15" nullable="false" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.1">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <attributes name="lname" type="STRING" length="20" nullable="false" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.2">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <attributes name="address" type="STRING" length="35" nullable="false" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.3">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <attributes name="city" type="STRING" length="20" nullable="false" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.4">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <attributes name="state" type="STRING" length="2" nullable="false" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.5">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <attributes name="zip" type="STRING" length="10" nullable="false" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.6">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <attributes name="phone" type="STRING" length="12" nullable="false" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.7">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <attributes name="company_name" type="STRING" length="35" primaryKey="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.8">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING"/>
+    </attributes>
+    <read>
+      <remoteOp profileName="My Sample Database">
+        <metaData>
+          <columnInfos nullable="false" name="id" type="INT"/>
+          <columnInfos nullable="false" name="fname" type="STRING" length="15"/>
+          <columnInfos nullable="false" name="lname" type="STRING" length="20"/>
+          <columnInfos nullable="false" name="address" type="STRING" length="35"/>
+          <columnInfos nullable="false" name="city" type="STRING" length="20"/>
+          <columnInfos nullable="false" name="state" type="STRING" length="2"/>
+          <columnInfos nullable="false" name="zip" type="STRING" length="10"/>
+          <columnInfos nullable="false" name="phone" type="STRING" length="12"/>
+          <columnInfos name="company_name" type="STRING" length="35"/>
+        </metaData>
+        <definition xsi:type="jdbcDatasourceExtension:EJDBCOperationDefinition" sqlQuery="SELECT   id,&#xA;  fname,&#xA;  lname,&#xA;  address,&#xA;  city,&#xA;  state,&#xA;  zip,&#xA;  phone,&#xA;  company_name FROM sampledb.dba.customer">
+          <method selectedResultSet="//@mObjects.0/@read/@remoteOp/@definition/@method/@resultSets.0">
+            <resultSets name="RESULT SET - 1">
+              <columnInfos name="id" type="INT"/>
+              <columnInfos name="fname" type="STRING"/>
+              <columnInfos name="lname" type="STRING"/>
+              <columnInfos name="address" type="STRING"/>
+              <columnInfos name="city" type="STRING"/>
+              <columnInfos name="state" type="STRING"/>
+              <columnInfos name="zip" type="STRING"/>
+              <columnInfos name="phone" type="STRING"/>
+              <columnInfos name="company_name" type="STRING"/>
+            </resultSets>
+          </method>
+        </definition>
+      </remoteOp>
+    </read>
+    <namedQuery sqlQuery="SELECT x.* FROM Customer x &#xA;WHERE x.id = :id " name="findByPrimaryKey" isSystem="true">
+      <parameters name="id" type="INT" nullable="false" fromAttribute="//@mObjects.0/@attributes.0">
+        <dataType xsi:type="uepmodels:EPrimitiveType" name="INT" sqlType="4" javaType="int"/>
+      </parameters>
+    </namedQuery>
+    <publish/>
+    <subscribe>
+      <downloadData/>
+    </subscribe>
+  </mObjects>
+  <rootPackage name="/" mObjects="_WhHjcYXbEeKeY7Z_N0pfog"/>
+  <personalizationKeys nullable="false" name="username" type="STRING">
+    <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+  </personalizationKeys>
+  <personalizationKeys nullable="false" name="password" type="STRING">
+    <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+  </personalizationKeys>
+  <publications name="Default" mObjects="_WhHjcYXbEeKeY7Z_N0pfog" checkInterval="600" default="true"/>
+  <caches name="Default" default="true" mObjects="_WhHjcYXbEeKeY7Z_N0pfog">
+    <policy xsi:type="uepmodels:EOnDemandPolicy">
+      <coherenceWindow/>
+    </policy>
+  </caches>
+</uepmodels:EMODiagram>
