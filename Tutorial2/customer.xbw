@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xbw="http://xbw/1.0">
-  <xbw:XmlBobDocument xmi:id="_Y931kIXiEeKeY7Z_N0pfog" version="2.0.1" module_name="customer" module_display_name="customer" client_icon_index="48" credentials_cache_key="customer_credentials">
+  <xbw:XmlBobDocument xmi:id="_Y931kIXiEeKeY7Z_N0pfog" version="2.0.1" module_name="customer" module_display_name="customer" client_icon_index="44" credentials_cache_key="customer_credentials">
     <nodes xmi:type="xbw:StartFlowStartingPoint" xmi:id="_Y94co4XiEeKeY7Z_N0pfog" name="Client-initiated"/>
     <nodes xmi:type="xbw:Screen" xmi:id="_ZAedoIXiEeKeY7Z_N0pfog" name="Start" key="Start" keys="_nQqlwIXiEeKeY7Z_N0pfog _t7JgwIXiEeKeY7Z_N0pfog">
       <menu xmi:type="xbw:Menu" xmi:id="_ZAedoYXiEeKeY7Z_N0pfog">
@@ -11,7 +11,7 @@
           <action xmi:type="xbw:SyncSubmitAction" xmi:id="_ehYhd4XiEeKeY7Z_N0pfog" key="List_Customers" mbo="_aIz-sIXiEeKeY7Z_N0pfog" onerror="" operation_success_screen="_aJGSkIXiEeKeY7Z_N0pfog" operation_error_screen="_gmX4AIXiEeKeY7Z_N0pfog" mbo_named_query_name="findAll" output_keys="_ehYhdYXiEeKeY7Z_N0pfog _aJTG4IXiEeKeY7Z_N0pfog"/>
         </menuItems>
         <menuItems xmi:type="xbw:MenuItem" xmi:id="_cj2dwIXiEeKeY7Z_N0pfog" name="Find Customers">
-          <action xmi:type="xbw:SyncSubmitAction" xmi:id="_1BM9cIXiEeKeY7Z_N0pfog" key="Find_Customers" mbo="_aIz-sIXiEeKeY7Z_N0pfog" mbo_named_query_name="findByCompanyName" output_keys="_ehYhdYXiEeKeY7Z_N0pfog _aJTG4IXiEeKeY7Z_N0pfog">
+          <action xmi:type="xbw:SyncSubmitAction" xmi:id="_1BM9cIXiEeKeY7Z_N0pfog" key="Find_Customers" mbo="_aIz-sIXiEeKeY7Z_N0pfog" operation_success_screen="_aJGSkIXiEeKeY7Z_N0pfog" operation_error_screen="_gmX4AIXiEeKeY7Z_N0pfog" mbo_named_query_name="findByCompanyName" output_keys="_ehYhdYXiEeKeY7Z_N0pfog _aJTG4IXiEeKeY7Z_N0pfog">
             <parameter_mappings xmi:type="xbw:ParameterMapping" xmi:id="_3ypKUIXiEeKeY7Z_N0pfog" key="_nQqlwIXiEeKeY7Z_N0pfog" mbo_operation_parameter_name="pkCompanyName"/>
           </action>
         </menuItems>
@@ -98,6 +98,12 @@
     <navigations xmi:type="xbw:ListviewDetailsNavigation" xmi:id="_gm4OUIXiEeKeY7Z_N0pfog" end="_gmraAoXiEeKeY7Z_N0pfog" start="_gmX4AIXiEeKeY7Z_N0pfog"/>
     <navigations xmi:type="xbw:OperationSuccessNavigation" xmi:id="_ieYigIXiEeKeY7Z_N0pfog" end="_aJGSkIXiEeKeY7Z_N0pfog" action="_ehYhd4XiEeKeY7Z_N0pfog" start="_ZAedoIXiEeKeY7Z_N0pfog">
       <emailInjectionDetails xmi:type="xbw:EmailInjectionDetails" xmi:id="_ieYigYXiEeKeY7Z_N0pfog"/>
+    </navigations>
+    <navigations xmi:type="xbw:OperationErrorNavigation" xmi:id="_-oQlAIXnEeKoR86Cq9D2eQ" end="_gmX4AIXiEeKeY7Z_N0pfog" action="_1BM9cIXiEeKeY7Z_N0pfog" start="_ZAedoIXiEeKeY7Z_N0pfog">
+      <emailInjectionDetails xmi:type="xbw:EmailInjectionDetails" xmi:id="_-oQlAYXnEeKoR86Cq9D2eQ"/>
+    </navigations>
+    <navigations xmi:type="xbw:OperationSuccessNavigation" xmi:id="__KJKEIXnEeKoR86Cq9D2eQ" end="_aJGSkIXiEeKeY7Z_N0pfog" action="_1BM9cIXiEeKeY7Z_N0pfog" start="_ZAedoIXiEeKeY7Z_N0pfog">
+      <emailInjectionDetails xmi:type="xbw:EmailInjectionDetails" xmi:id="__KJKEYXnEeKoR86Cq9D2eQ"/>
     </navigations>
     <mboReferences xmi:type="xbw:MBOReference" xmi:id="_aIz-sIXiEeKeY7Z_N0pfog" name="Customer" project="Tutorial2" version="1.0"/>
     <authentication xmi:type="xbw:StaticDesignTimeAuthentication" xmi:id="_Y94cooXiEeKeY7Z_N0pfog"/>
@@ -232,6 +238,20 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ieZJk4XiEeKeY7Z_N0pfog" points="[0, 0, 51, -60]$[-51, 60, 0, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ieaXsIXiEeKeY7Z_N0pfog" id="(0.3333333333333333,1.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ieaXsYXiEeKeY7Z_N0pfog" id="(0.5,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_-oRMEIXnEeKoR86Cq9D2eQ" type="4002" element="_-oQlAIXnEeKoR86Cq9D2eQ" source="_ZAgS0IXiEeKeY7Z_N0pfog" target="_gmYfEIXiEeKeY7Z_N0pfog">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_-oRMEYXnEeKoR86Cq9D2eQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_-oRMEoXnEeKoR86Cq9D2eQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-oRME4XnEeKoR86Cq9D2eQ" points="[0, 0, -84, -132]$[84, 132, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-oSaMIXnEeKoR86Cq9D2eQ" id="(0.0,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-oSaMYXnEeKoR86Cq9D2eQ" id="(0.0,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="__KJxIIXnEeKoR86Cq9D2eQ" type="4003" element="__KJKEIXnEeKoR86Cq9D2eQ" source="_ZAgS0IXiEeKeY7Z_N0pfog" target="_aJG5oIXiEeKeY7Z_N0pfog">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="__KJxIYXnEeKoR86Cq9D2eQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__KJxIoXnEeKoR86Cq9D2eQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__KJxI4XnEeKoR86Cq9D2eQ" points="[0, 0, 60, -132]$[-60, 132, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__KK_QIXnEeKoR86Cq9D2eQ" id="(0.0,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__KK_QYXnEeKoR86Cq9D2eQ" id="(0.0,0.0)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_ZAgS1oXiEeKeY7Z_N0pfog" type="XbwScreen" element="_ZAedoIXiEeKeY7Z_N0pfog" measurementUnit="Pixel">

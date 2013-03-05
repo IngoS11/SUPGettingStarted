@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xbw="http://xbw/1.0">
-  <xbw:XmlBobDocument xmi:id="_EueEYIXfEeKeY7Z_N0pfog" version="2.0.1" module_name="customer" module_display_name="customer" client_icon_index="48" credentials_cache_key="customer_credentials">
+  <xbw:XmlBobDocument xmi:id="_EueEYIXfEeKeY7Z_N0pfog" version="2.0.1" module_name="customer" module_display_name="customer" client_icon_index="44" credentials_cache_key="customer_credentials">
     <nodes xmi:type="xbw:StartFlowStartingPoint" xmi:id="_EvDTMYXfEeKeY7Z_N0pfog" name="Client-initiated"/>
     <nodes xmi:type="xbw:Screen" xmi:id="_E9c7kIXfEeKeY7Z_N0pfog" name="Start" key="Start">
       <menu xmi:type="xbw:Menu" xmi:id="_E9c7kYXfEeKeY7Z_N0pfog">
