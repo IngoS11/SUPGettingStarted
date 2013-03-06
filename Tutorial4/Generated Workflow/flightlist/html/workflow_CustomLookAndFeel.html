@@ -1,0 +1,374 @@
+﻿<!doctype html>
+<!-- Warning, this file is overwritten with each run of the package generation wizard -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="HandheldFriendly" content="True" />
+        <meta http-equiv="PRAGMA" content="NO-CACHE" />
+        <meta name="viewport" content="minimum-scale=.25, initial-scale=1" />
+
+        <script src="js/API.js"></script>
+        <script src="js/Callbacks.js"></script>
+        <script src="js/Camera.js"></script>
+        <script src="js/Certificate.js"></script>
+        <script src="js/Custom.js"></script>
+        <script src="js/ExternalResource.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/Resources.js"></script>
+        <script src="js/SUPStorage.js"></script>
+        <script src="js/Timezone.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/widgets/sy.ui.js"></script>
+        <script src="js/widgets/sy.ui.android.checkbox.js"></script>
+        <script src="js/widgets/sy.ui.android.combobox.js"></script>
+        <script src="js/widgets/sy.ui.android.listview.js"></script>
+        <script src="js/widgets/sy.ui.android.radiobutton.js"></script>
+        <script src="js/widgets/sy.ui.bb.picker.js"></script>
+        <script src="js/widgets/sy.ui.bb.textbox.js"></script>
+        <script src="js/Workflow.js"></script>
+        <script src="js/WorkflowMessage.js"></script>
+        <link rel="stylesheet" href="css/bb/checkbox.css" type="text/css" />
+        <link rel="stylesheet" href="css/bb/datepicker.css" type="text/css" />
+        <link rel="stylesheet" href="css/bb/editBox.css" type="text/css" />
+        <link rel="stylesheet" href="css/bb/listview.css" type="text/css" />
+        <link rel="stylesheet" href="css/bb/master.css" type="text/css" />
+        <link rel="stylesheet" href="css/bb/radiobutton.css" type="text/css" />
+        <link rel="stylesheet" href="css/bb/Stylesheet.css" type="text/css" />
+        <link rel="stylesheet" href="css/bb/valuepicker.css" type="text/css" />
+        
+        <script>
+            isCustomLookAndFeel= true;
+        </script>
+        
+      
+        <style type="text/css">
+           .FlightList_alternateColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .FlightList_defaultColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorList_alternateColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorList_defaultColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorDetail_alternateColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .ErrorDetail_defaultColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+        </style>
+     </head>
+    <body onload="onWorkflowLoad();">
+    <div id="StartScreenDiv" sup_screen_title="Start" style="display: none" sup_menuitems="Cancel,Cancel,List Flights,List_Flights" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"StartScreenTitle\" class=\"screenTitle\">Start</h3>"); }</script>
+        <ul id="StartScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="StartCancel" onclick="menuItemCallbackStartCancel();">Cancel</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="List Flights" id="StartList_Flights" onclick="menuItemCallbackStartList_Flights();">List Flights</a></li>
+        </ul>
+        <form style="margin: 0px;" name="StartForm" id="StartForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="StartForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfStartForm"></div> 
+          <div class="choice">
+    
+          <label class="top" for="uikAirline">Airline:</label>
+            <select class="right" id="uikAirline" sup_num_of_decimals="0" sup_html_type="text"  sup_static_options="true">            
+                        <option value="DL">Delta Airlines</option>
+                        <option value="JP">Japan Airlines</option>
+                        <option value="LH">Lufthansa</option>
+                    </select><span id="Start_uikAirline_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfStartForm"></div>       
+        </form>  
+    </div> <!-- end of screen Start -->
+    <div id="FlightListDetailScreenDiv" sup_screen_title="FlightListDetail" style="display: none" sup_menuitems="Back,Back" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"FlightListDetailScreenTitle\" class=\"screenTitle\">FlightListDetail</h3>"); }</script>
+        <ul id="FlightListDetailScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Back" id="FlightListDetailBack" onclick="menuItemCallbackFlightListDetailBack();">Back</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="FlightListDetailCancel" onclick="menuItemCallbackFlightListDetailCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="FlightListDetailForm" id="FlightListDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="FlightListDetailForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfFlightListDetailForm"></div> 
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_AIRLINEID_attribKey">AIRLINEID:</label>
+            <input class="right" type="text" id="FlightList_AIRLINEID_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRLINEID_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_AIRLINE_attribKey">AIRLINE:</label>
+            <input class="right" type="text" id="FlightList_AIRLINE_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRLINE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_CONNECTID_attribKey">CONNECTID:</label>
+            <input class="right" type="text" id="FlightList_CONNECTID_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CONNECTID_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_FLIGHTDATE_attribKey">FLIGHTDATE:</label>
+            <input class="right"  class="datepicker" type="date" id="FlightList_FLIGHTDATE_attribKey" sup_html_type="date"  sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_FLIGHTDATE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_AIRPORTFR_attribKey">AIRPORTFR:</label>
+            <input class="right" type="text" id="FlightList_AIRPORTFR_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRPORTFR_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_CITYFROM_attribKey">CITYFROM:</label>
+            <input class="right" type="text" id="FlightList_CITYFROM_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CITYFROM_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_AIRPORTTO_attribKey">AIRPORTTO:</label>
+            <input class="right" type="text" id="FlightList_AIRPORTTO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRPORTTO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_CITYTO_attribKey">CITYTO:</label>
+            <input class="right" type="text" id="FlightList_CITYTO_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CITYTO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_DEPTIME_attribKey">DEPTIME:</label>
+            <input class="right"  class="timepicker" type="time" id="FlightList_DEPTIME_attribKey" sup_html_type="time"  sup_precision="SECONDS" sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_DEPTIME_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_ARRTIME_attribKey">ARRTIME:</label>
+            <input class="right"  class="timepicker" type="time" id="FlightList_ARRTIME_attribKey" sup_html_type="time"  sup_precision="SECONDS" sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_ARRTIME_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_ARRDATE_attribKey">ARRDATE:</label>
+            <input class="right"  class="datepicker" type="date" id="FlightList_ARRDATE_attribKey" sup_html_type="date"  sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_ARRDATE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_PRICE_attribKey">PRICE:</label>
+            <input class="right" type="number" id="FlightList_PRICE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="FlightListDetail_FlightList_PRICE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_CURR_attribKey">CURR:</label>
+            <input class="right" type="text" id="FlightList_CURR_attribKey" sup_html_type="text"  sup_max_length="5" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CURR_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="FlightList_CURR_ISO_attribKey">CURR ISO:</label>
+            <input class="right" type="text" id="FlightList_CURR_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CURR_ISO_attribKey_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfFlightListDetailForm"></div>       
+        </form>  
+    </div> <!-- end of screen FlightListDetail -->
+    <div id="FlightListScreenDiv" sup_screen_title="FlightList" style="display: none" sup_menuitems="Submit,Submit,Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"FlightListScreenTitle\" class=\"screenTitle\">FlightList</h3>"); }</script>
+        <ul id="FlightListScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Submit" id="FlightListSubmit" onclick="menuItemCallbackFlightListSubmit();">Submit</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="FlightListCancel" onclick="menuItemCallbackFlightListCancel();">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="FlightListForm" id="FlightListForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="FlightListForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfFlightListForm"></div>
+          <div class="listview" screen="FlightList" id="FlightList" wrap_data="false">
+            <script>
+                         var field0 = {id:'FlightList_CONNECTID_attribKey', name:'CONNECTID' , width:100, height:0, static:true ,font:'normal',dataType:'TEXT'};
+                         var line0=[ field0 ] ;
+
+                         var field1 = {id:'FlightList_FLIGHTDATE_attribKey', name:'FLIGHTDATE' , width:100, height:0, static:true ,font:'normal',dataType:'DATE'};
+                         var line1=[ field1 ] ;
+
+                         var field2 = {id:'FlightList_DEPTIME_attribKey', name:'DEPTIME' , width:100, height:0, static:true ,font:'normal',dataType:'TIME'};
+                         var line2=[ field2 ] ;
+
+                         var lines =[line0,line1,line2];
+                         Sybase('div[screen="FlightList"]#FlightList').syListview ({
+	                           lines:lines,
+	                           onItemSelected: itemSelected,
+	                           showViewHeader:false,
+	                           onEmptyList:"",
+	                           alternateColor:"null",
+                                   reversedColor:"",
+ 	                           inset:"false"	                           
+	                      });
+	                     
+	                    
+           		
+	                      UIScreenListeners.push( function(screenObj ) {
+	                          if (  screenObj.screenToShow = 'FlightList') {
+	                              Sybase('div[screen="FlightList"]#FlightList').syListview( 'updateOnVisible', null);
+	                          }
+                          }); 
+                    
+                         UIUpdateHandlers.push( {screenName: 'FlightList',
+                                                widgetName: 'div.listview',
+                                                callback: function( data ) {
+                                                    Sybase('div[screen="FlightList"]#FlightList').syListview( 'updateUIFromWorkFlowMessage', [data] );       
+       return true;
+                                                      } }
+                            );
+                     
+                     
+                        function itemSelected( target ) {  
+                             navigateForward("FlightListDetail",  target.id );
+                             Sybase('div.editbox').editBox();
+                             Sybase('div.choice').comboBox();                             
+                        }
+             </script>
+           </div>
+ 
+
+           <div class="customBottomOfFormStyle"   id="bottomOfFlightListForm"></div>       
+        </form>  
+    </div> <!-- end of screen FlightList -->
+    <div id="ErrorListScreenDiv" sup_screen_title="ErrorList" style="display: none" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"ErrorListScreenTitle\" class=\"screenTitle\">ErrorList</h3>"); }</script>
+        <ul id="ErrorListScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="ErrorListCancel" onclick="menuItemCallbackErrorListCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="ErrorListForm" id="ErrorListForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="ErrorListForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfErrorListForm"></div>
+          <div class="listview" screen="ErrorList" id="ErrorLogs" wrap_data="false">
+            <script>
+                         var field0 = {id:'ErrorLogMessage', name:'ErrorLogMessage' , width:100, height:0, static:true ,font:'normal',dataType:''};
+                         var line0=[ field0 ] ;
+
+                         var lines =[line0];
+                         Sybase('div[screen="ErrorList"]#ErrorLogs').syListview ({
+	                           lines:lines,
+	                           onItemSelected: itemSelected,
+	                           showViewHeader:false,
+	                           onEmptyList:"",
+	                           alternateColor:"null",
+                                   reversedColor:"",
+ 	                           inset:"false"	                           
+	                      });
+	                     
+	                    
+           		
+	                      UIScreenListeners.push( function(screenObj ) {
+	                          if (  screenObj.screenToShow = 'ErrorLogs') {
+	                              Sybase('div[screen="ErrorList"]#ErrorLogs').syListview( 'updateOnVisible', null);
+	                          }
+                          }); 
+                    
+                         UIUpdateHandlers.push( {screenName: 'ErrorList',
+                                                widgetName: 'div.listview',
+                                                callback: function( data ) {
+                                                    Sybase('div[screen="ErrorList"]#ErrorLogs').syListview( 'updateUIFromWorkFlowMessage', [data] );       
+       return true;
+                                                      } }
+                            );
+                     
+                     
+                        function itemSelected( target ) {  
+                             navigateForward("ErrorDetail",  target.id );
+                             Sybase('div.editbox').editBox();
+                             Sybase('div.choice').comboBox();                             
+                        }
+             </script>
+           </div>
+ 
+
+           <div class="customBottomOfFormStyle"   id="bottomOfErrorListForm"></div>       
+        </form>  
+    </div> <!-- end of screen ErrorList -->
+    <div id="ErrorDetailScreenDiv" sup_screen_title="ErrorDetail" style="display: none" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"ErrorDetailScreenTitle\" class=\"screenTitle\">ErrorDetail</h3>"); }</script>
+        <ul id="ErrorDetailScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="ErrorDetailCancel" onclick="menuItemCallbackErrorDetailCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="ErrorDetailForm" id="ErrorDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+           
+          <div class="customTopOfFormStyle"  ><span id="ErrorDetailForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfErrorDetailForm"></div>
+          <div class="listview" screen="ErrorDetail" id="ErrorLogMessageAsList" wrap_data="false">
+            <script>
+                         var field0 = {id:'name', name:'Name' , width:30, height:0, static:true ,font:'normal',dataType:''};
+                         var field1 = {id:'value', name:'Value' , width:70, height:0, static:true ,font:'normal',dataType:''};
+                         var line0=[ field0,field1 ] ;
+
+                         var lines =[line0];
+                         Sybase('div[screen="ErrorDetail"]#ErrorLogMessageAsList').syListview ({
+	                           lines:lines,
+	                           onItemSelected: null,
+	                           showViewHeader:false,
+	                           onEmptyList:"",
+	                           alternateColor:"null",
+                                   reversedColor:"",
+ 	                           inset:"false"	                           
+	                      });
+	                     
+	                    
+           		
+	                      UIScreenListeners.push( function(screenObj ) {
+	                          if (  screenObj.screenToShow = 'ErrorLogMessageAsList') {
+	                              Sybase('div[screen="ErrorDetail"]#ErrorLogMessageAsList').syListview( 'updateOnVisible', null);
+	                          }
+                          }); 
+                    
+                         UIUpdateHandlers.push( {screenName: 'ErrorDetail',
+                                                widgetName: 'div.listview',
+                                                callback: function( data ) {
+                                                    Sybase('div[screen="ErrorDetail"]#ErrorLogMessageAsList').syListview( 'updateUIFromWorkFlowMessage', [data] );       
+       return true;
+                                                      } }
+                            );
+                     
+                     
+                        function itemSelected( target ) {                             
+                        }
+             </script>
+           </div>
+ 
+
+           <div class="customBottomOfFormStyle"   id="bottomOfErrorDetailForm"></div>       
+        </form>  
+    </div> <!-- end of screen ErrorDetail -->
+    <div id="blankScreenDiv" style="display: none">
+    </div>
+        <script>
+          iScroller = null;
+          
+           function showScroller( isShow,page  ){
+               
+               var divPage =  document.getElementById( page );
+               if (divPage == null ) {
+                       return;
+               }
+               if ( divPage.offsetHeight < screen.height ) {
+                    divPage.style.height = screen.height +'px';
+               }
+               Sybase.ui.tableLayout( page )
+           }
+           
+           Sybase(document).ready( function(){
+               Sybase('div.editbox').editBox();
+               Sybase('div.choice').comboBox();
+               //Sybase('div.checkbox').checkBox();
+             
+                showScroller( "true",  getCurrentScreen() +'ScreenDiv');
+
+                UIScreenListeners.push( function(screenObj ) {
+                     showScroller( true,  screenObj.screenToShow +'ScreenDiv' ); 
+                }); 
+           });
+
+
+       </script>
+
+    </body>
+</html>

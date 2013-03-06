@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="WorkflowClient.xsd" >
+  <Globals>
+    <DefaultScreens activation="" credentials=""/>
+  </Globals>
+  <Triggers> 
+    <Actions>
+      <Action name="List_Flights" sourcescreen="Start" targetscreen="FlightList" errorscreen="ErrorList" errorlogskey="ErrorLogs" errorlogmessagekey="ErrorLogMessage" errorlogmessageaslistkey="ErrorLogMessageAsList">
+        <Methods>
+          <Method name="findAll" type="search" mbo="FlightList" package="Tutorial4:1.0" showCredScreenOnAuthFailure="true" >
+            <InputBinding optype="none" opname="findAll" generateOld="false">
+            </InputBinding>
+            <OutputBinding generateOld="true">			    
+              <Mapping workflowKey="FlightList" workflowType="list" mboType="list">
+                 <Mapping workflowKey="FlightList_AIRLINEID_attribKey" workflowType="text" attribName="AIRLINEID" mboType="string"/>
+                 <Mapping workflowKey="FlightList_AIRLINE_attribKey" workflowType="text" attribName="AIRLINE" mboType="string"/>
+                 <Mapping workflowKey="FlightList_CONNECTID_attribKey" workflowType="text" attribName="CONNECTID" mboType="string"/>
+                 <Mapping workflowKey="FlightList_FLIGHTDATE_attribKey" workflowType="date" attribName="FLIGHTDATE" mboType="date"/>
+                 <Mapping workflowKey="FlightList_AIRPORTFR_attribKey" workflowType="text" attribName="AIRPORTFR" mboType="string"/>
+                 <Mapping workflowKey="FlightList_CITYFROM_attribKey" workflowType="text" attribName="CITYFROM" mboType="string"/>
+                 <Mapping workflowKey="FlightList_AIRPORTTO_attribKey" workflowType="text" attribName="AIRPORTTO" mboType="string"/>
+                 <Mapping workflowKey="FlightList_CITYTO_attribKey" workflowType="text" attribName="CITYTO" mboType="string"/>
+                 <Mapping workflowKey="FlightList_DEPTIME_attribKey" workflowType="time" attribName="DEPTIME" mboType="time"/>
+                 <Mapping workflowKey="FlightList_ARRTIME_attribKey" workflowType="time" attribName="ARRTIME" mboType="time"/>
+                 <Mapping workflowKey="FlightList_ARRDATE_attribKey" workflowType="date" attribName="ARRDATE" mboType="date"/>
+                 <Mapping workflowKey="FlightList_PRICE_attribKey" workflowType="number" attribName="PRICE" mboType="decimal"/>
+                 <Mapping workflowKey="FlightList_CURR_attribKey" workflowType="text" attribName="CURR" mboType="string"/>
+                 <Mapping workflowKey="FlightList_CURR_ISO_attribKey" workflowType="text" attribName="CURR_ISO" mboType="string"/>
+              </Mapping>
+
+            </OutputBinding>
+          </Method>
+        </Methods>
+      </Action>
+      <Action name="Submit" sourcescreen="FlightList" targetscreen="" errorscreen="" asyncRequestErrorScreen="" errorNotificationSubjectLine="" errorNotificationFromLine="" asyncRequestErrorlogs="" asyncRequestErrorLogMessage="" asyncRequestErrorLogMessageAsList="">
+        <Methods>
+          <Method type="replay" mbo="FlightList" package="Tutorial4:1.0" showCredScreenOnAuthFailure="true" >
+            <InputBinding optype="none" generateOld="false">			    
+                              <Value sourceType="Key" workflowKey="FlightList" mboType="list">
+                <InputBinding optype="none">
+                  <Value sourceType="Key" workflowKey="FlightList_AIRLINEID_attribKey" attribName="AIRLINEID" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_AIRLINE_attribKey" attribName="AIRLINE" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_CONNECTID_attribKey" attribName="CONNECTID" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_FLIGHTDATE_attribKey" attribName="FLIGHTDATE" mboType="date"/>
+                  <Value sourceType="Key" workflowKey="FlightList_AIRPORTFR_attribKey" attribName="AIRPORTFR" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_CITYFROM_attribKey" attribName="CITYFROM" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_AIRPORTTO_attribKey" attribName="AIRPORTTO" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_CITYTO_attribKey" attribName="CITYTO" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_DEPTIME_attribKey" attribName="DEPTIME" mboType="time"/>
+                  <Value sourceType="Key" workflowKey="FlightList_ARRTIME_attribKey" attribName="ARRTIME" mboType="time"/>
+                  <Value sourceType="Key" workflowKey="FlightList_ARRDATE_attribKey" attribName="ARRDATE" mboType="date"/>
+                  <Value sourceType="Key" workflowKey="FlightList_PRICE_attribKey" attribName="PRICE" mboType="decimal"/>
+                  <Value sourceType="Key" workflowKey="FlightList_CURR_attribKey" attribName="CURR" mboType="string"/>
+                  <Value sourceType="Key" workflowKey="FlightList_CURR_ISO_attribKey" attribName="CURR_ISO" mboType="string"/>
+                </InputBinding>
+              </Value>
+
+            </InputBinding>
+            <OutputBinding/>
+          </Method>
+        </Methods>
+      </Action>
+    </Actions>
+    <Notifications>
+    </Notifications>
+  </Triggers>
+</Workflow>
+        

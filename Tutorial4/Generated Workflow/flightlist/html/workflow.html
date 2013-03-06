@@ -1,0 +1,191 @@
+﻿<!doctype html>
+<!-- Warning, this file is overwritten with each run of the package generation wizard -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="HandheldFriendly" content="True" />
+        <meta http-equiv="PRAGMA" content="NO-CACHE" />
+        <meta name="viewport" content="minimum-scale=.25, initial-scale=1" />
+
+        <script src="js/API.js"></script>
+        <script src="js/Callbacks.js"></script>
+        <script src="js/Camera.js"></script>
+        <script src="js/Certificate.js"></script>
+        <script src="js/Custom.js"></script>
+        <script src="js/ExternalResource.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/Resources.js"></script>
+        <script src="js/SUPStorage.js"></script>
+        <script src="js/Timezone.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/Workflow.js"></script>
+        <script src="js/WorkflowMessage.js"></script>
+        <link rel="stylesheet" href="css/Stylesheet.css" type="text/css" />      
+    </head>
+    <body onload="onWorkflowLoad();">
+    <div id="StartScreenDiv" sup_screen_title="Start" style="display: none" sup_menuitems="Cancel,Cancel,List Flights,List_Flights" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"StartScreenTitle\" class=\"screenTitle\">Start</h3>"); }</script>
+        <ul id="StartScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="StartCancel" onclick="menuItemCallbackStartCancel();">Cancel</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="List Flights" id="StartList_Flights" onclick="menuItemCallbackStartList_Flights();">List Flights</a></li>
+        </ul>
+        <form style="margin: 0px;" name="StartForm" id="StartForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="StartForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfStartForm"></td></tr>
+            <tr>
+                <td colspan="2"><label for="uikAirline">Airline:</label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <select class="right" id="uikAirline" sup_num_of_decimals="0" sup_html_type="text"  sup_static_options="true">            
+                        <option value="DL">Delta Airlines</option>
+                        <option value="JP">Japan Airlines</option>
+                        <option value="LH">Lufthansa</option>
+                    </select><span id="Start_uikAirline_help" class="help"></span>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfStartForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen Start -->
+    <div id="FlightListDetailScreenDiv" sup_screen_title="FlightListDetail" style="display: none" sup_menuitems="Back,Back" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"FlightListDetailScreenTitle\" class=\"screenTitle\">FlightListDetail</h3>"); }</script>
+        <ul id="FlightListDetailScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Back" id="FlightListDetailBack" onclick="menuItemCallbackFlightListDetailBack();">Back</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="FlightListDetailCancel" onclick="menuItemCallbackFlightListDetailCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="FlightListDetailForm" id="FlightListDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="FlightListDetailForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfFlightListDetailForm"></td></tr>
+            <tr>
+                <td class="left"><label for="FlightList_AIRLINEID_attribKey">AIRLINEID:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_AIRLINEID_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRLINEID_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_AIRLINE_attribKey">AIRLINE:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_AIRLINE_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRLINE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_CONNECTID_attribKey">CONNECTID:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_CONNECTID_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CONNECTID_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_FLIGHTDATE_attribKey">FLIGHTDATE:</label></td>
+                <td class="right">
+                    <input class="right" type="date" id="FlightList_FLIGHTDATE_attribKey" sup_html_type="date"  sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_FLIGHTDATE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_AIRPORTFR_attribKey">AIRPORTFR:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_AIRPORTFR_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRPORTFR_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_CITYFROM_attribKey">CITYFROM:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_CITYFROM_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CITYFROM_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_AIRPORTTO_attribKey">AIRPORTTO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_AIRPORTTO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_AIRPORTTO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_CITYTO_attribKey">CITYTO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_CITYTO_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CITYTO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_DEPTIME_attribKey">DEPTIME:</label></td>
+                <td class="right">
+                    <input class="right" type="time" id="FlightList_DEPTIME_attribKey" sup_html_type="time"  sup_precision="SECONDS" sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_DEPTIME_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_ARRTIME_attribKey">ARRTIME:</label></td>
+                <td class="right">
+                    <input class="right" type="time" id="FlightList_ARRTIME_attribKey" sup_html_type="time"  sup_precision="SECONDS" sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_ARRTIME_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_ARRDATE_attribKey">ARRDATE:</label></td>
+                <td class="right">
+                    <input class="right" type="date" id="FlightList_ARRDATE_attribKey" sup_html_type="date"  sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_ARRDATE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_PRICE_attribKey">PRICE:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="FlightList_PRICE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="FlightListDetail_FlightList_PRICE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_CURR_attribKey">CURR:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_CURR_attribKey" sup_html_type="text"  sup_max_length="5" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CURR_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="FlightList_CURR_ISO_attribKey">CURR ISO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="FlightList_CURR_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="FlightListDetail_FlightList_CURR_ISO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfFlightListDetailForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen FlightListDetail -->
+    <div id="FlightListScreenDiv" sup_screen_title="FlightList" style="display: none" sup_menuitems="Submit,Submit,Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"FlightListScreenTitle\" class=\"screenTitle\">FlightList</h3>"); }</script>
+        <ul id="FlightListScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Submit" id="FlightListSubmit" onclick="menuItemCallbackFlightListSubmit();">Submit</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="FlightListCancel" onclick="menuItemCallbackFlightListCancel();">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="FlightListForm" id="FlightListForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="FlightListForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfFlightListForm"></td></tr>
+            <tr><td colspan="2"><ul class="listview" id="FlightList" wrap_data="false" cells="FlightListDetail&?null&?&?false&?FlightList_CONNECTID_attribKey&,100&,CONNECTID&,normal&,TEXT&, &, &;FlightList_FLIGHTDATE_attribKey&,100&,FLIGHTDATE&,normal&,DATE&, &, &;FlightList_DEPTIME_attribKey&,100&,DEPTIME&,normal&,TIME&, &, "></ul></td></tr>
+          <tr><td colspan="2" id="bottomOfFlightListForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen FlightList -->
+    <div id="ErrorListScreenDiv" sup_screen_title="ErrorList" style="display: none" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"ErrorListScreenTitle\" class=\"screenTitle\">ErrorList</h3>"); }</script>
+        <ul id="ErrorListScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="ErrorListCancel" onclick="menuItemCallbackErrorListCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="ErrorListForm" id="ErrorListForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="ErrorListForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfErrorListForm"></td></tr>
+            <tr><td colspan="2"><ul class="listview" id="ErrorLogs" wrap_data="false" cells="ErrorDetail&?null&?&?false&?ErrorLogMessage&,100&,&,normal&,&, &, "></ul></td></tr>
+          <tr><td colspan="2" id="bottomOfErrorListForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen ErrorList -->
+    <div id="ErrorDetailScreenDiv" sup_screen_title="ErrorDetail" style="display: none" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"ErrorDetailScreenTitle\" class=\"screenTitle\">ErrorDetail</h3>"); }</script>
+        <ul id="ErrorDetailScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="ErrorDetailCancel" onclick="menuItemCallbackErrorDetailCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="ErrorDetailForm" id="ErrorDetailForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="ErrorDetailForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfErrorDetailForm"></td></tr>
+            <tr><td colspan="2"><ul class="listview" id="ErrorLogMessageAsList" wrap_data="false" cells="&?null&?&?false&?name&,30&,Name&,normal&,&, &, &,value&,70&,Value&,normal&,&, &, "></ul></td></tr>
+          <tr><td colspan="2" id="bottomOfErrorDetailForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen ErrorDetail -->
+    <div id="blankScreenDiv" style="display: none">
+    </div>
+    </body>
+</html>

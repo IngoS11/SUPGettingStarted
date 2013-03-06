@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uepmodels:EMODiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sapDatasourceExtension="platform:/resource/com.sybase.uep.datasource/model/SAPOperationDefinition.ecore" xmlns:uepmodels="platform:/resource/com.sybase.uep.tooling.models/model/uepModels.ecore" modelVersion="2.1.3">
+  <mObjects name="FlightList" remark="" id="_tP6DAIXwEeKoR86Cq9D2eQ">
+    <attributes name="AIRLINEID" type="STRING" length="3" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.0">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="AIRLINE" type="STRING" length="20" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.1">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="CONNECTID" type="STRING" length="4" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.2">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="FLIGHTDATE" type="DATE" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.3">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="DATE" sqlType="91" javaType="java.sql.Date"/>
+    </attributes>
+    <attributes name="AIRPORTFR" type="STRING" length="3" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.4">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="CITYFROM" type="STRING" length="20" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.5">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="AIRPORTTO" type="STRING" length="3" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.6">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="CITYTO" type="STRING" length="20" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.7">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="DEPTIME" type="TIME" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.8">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="TIME" sqlType="92" javaType="java.sql.Time"/>
+    </attributes>
+    <attributes name="ARRTIME" type="TIME" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.9">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="TIME" sqlType="92" javaType="java.sql.Time"/>
+    </attributes>
+    <attributes name="ARRDATE" type="DATE" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.10">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="DATE" sqlType="91" javaType="java.sql.Date"/>
+    </attributes>
+    <attributes name="PRICE" type="DECIMAL" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.11">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="DECIMAL" sqlType="3" javaType="java.math.BigDecimal"/>
+    </attributes>
+    <attributes name="CURR" type="STRING" length="5" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.12">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <attributes name="CURR_ISO" type="STRING" length="3" nullable="false" fromColumn="//@mObjects.0/@read/@remoteOp/@metaData/@columnInfos.13">
+      <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+    </attributes>
+    <read>
+      <parameters name="AIRLINE" type="STRING" length="3" toArgument="//@mObjects.0/@read/@remoteOp/@metaData/@arguments.0">
+        <dataType xsi:type="uepmodels:EPrimitiveType" nullable="true" name="STRING" sqlType="12" javaType="java.lang.String"/>
+      </parameters>
+      <remoteOp profileName="SUP DevCenter ERP 6.0 EhP5" type="SAP">
+        <metaData>
+          <columnInfos nullable="false" name="FLIGHT_LIST.AIRLINEID" type="STRING" length="3"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.AIRLINE" type="STRING" length="20"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.CONNECTID" type="STRING" length="4"/>
+          <columnInfos name="FLIGHT_LIST.FLIGHTDATE" type="DATE"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.AIRPORTFR" type="STRING" length="3"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.CITYFROM" type="STRING" length="20"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.AIRPORTTO" type="STRING" length="3"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.CITYTO" type="STRING" length="20"/>
+          <columnInfos name="FLIGHT_LIST.DEPTIME" type="TIME"/>
+          <columnInfos name="FLIGHT_LIST.ARRTIME" type="TIME"/>
+          <columnInfos name="FLIGHT_LIST.ARRDATE" type="DATE"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.PRICE" type="DECIMAL"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.CURR" type="STRING" length="5"/>
+          <columnInfos nullable="false" name="FLIGHT_LIST.CURR_ISO" type="STRING" length="3"/>
+          <arguments personalizationKey="//@personalizationKeys.2" defaultValueNull="true" required="true" name="AIRLINE" type="STRING" isOperation="true" length="3">
+            <dataType xsi:type="uepmodels:EPrimitiveType" nullable="true" name="STRING" sqlType="12" javaType="java.lang.String"/>
+          </arguments>
+        </metaData>
+        <definition xsi:type="sapDatasourceExtension:ESAPOperationDefinition">
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsValue></connPropsValue>
+          <connPropsKey>jco.client.client</connPropsKey>
+          <connPropsKey>jco.client.lang</connPropsKey>
+          <connPropsKey>jco.client.codepage</connPropsKey>
+          <connPropsKey>jco.client.sysnr</connPropsKey>
+          <connPropsKey>jco.client.ashost</connPropsKey>
+          <connPropsKey>jco.client.abap_debug</connPropsKey>
+          <connPropsKey>jco.client.alias_user</connPropsKey>
+          <connPropsKey>jco.client.dest</connPropsKey>
+          <connPropsKey>jco.client.dsr</connPropsKey>
+          <connPropsKey>jco.client.extiddata</connPropsKey>
+          <connPropsKey>jco.client.extidtype</connPropsKey>
+          <connPropsKey>jco.client.getsso2</connPropsKey>
+          <connPropsKey>jco.client.group</connPropsKey>
+          <connPropsKey>jco.client.grt_data</connPropsKey>
+          <connPropsKey>jco.client.gwhost</connPropsKey>
+          <connPropsKey>jco.client.gwserv</connPropsKey>
+          <connPropsKey>jco.client.idle_timeout</connPropsKey>
+          <connPropsKey>jco.client.lcheck</connPropsKey>
+          <connPropsKey>jco.client.mshost</connPropsKey>
+          <connPropsKey>jco.client.mysapsso2</connPropsKey>
+          <connPropsKey>jco.client.r3name</connPropsKey>
+          <connPropsKey>jco.client.saplogon_id</connPropsKey>
+          <connPropsKey>jco.client.snc_lib</connPropsKey>
+          <connPropsKey>jco.client.snc_mode</connPropsKey>
+          <connPropsKey>jco.client.snc_myname</connPropsKey>
+          <connPropsKey>jco.client.snc_partnername</connPropsKey>
+          <connPropsKey>jco.client.snc_qop</connPropsKey>
+          <connPropsKey>jco.client.tphost</connPropsKey>
+          <connPropsKey>jco.client.tpname</connPropsKey>
+          <connPropsKey>jco.client.trace</connPropsKey>
+          <connPropsKey>jco.client.use_guihost</connPropsKey>
+          <connPropsKey>jco.client.use_guiprogid</connPropsKey>
+          <connPropsKey>jco.client.use_guiserv</connPropsKey>
+          <connPropsKey>jco.client.use_sapgui</connPropsKey>
+          <connPropsKey>jco.client.x509cert</connPropsKey>
+          <connPropsPK type="STRING">
+            <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+          </connPropsPK>
+          <connPropsPK type="STRING">
+            <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+          </connPropsPK>
+          <connPropsPK type="STRING">
+            <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+          </connPropsPK>
+          <connPropsPK type="STRING">
+            <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+          </connPropsPK>
+          <connPropsPK type="STRING">
+            <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+          </connPropsPK>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <connPropsPK/>
+          <sapInput>
+            <sapParameters>AIRLINE</sapParameters>
+            <sapFields key="AIRLINE">
+              <field>AIRLINE</field>
+            </sapFields>
+          </sapInput>
+          <sapOutput>
+            <sapTables>FLIGHT_LIST</sapTables>
+          </sapOutput>
+          <sapMethod name="GetList" objectName="Flight" objectType="SFLIGHT" shortText="Find list of flights" function="BAPI_FLIGHT_GETLIST" description="List of flights" classVerb="X" apiType="" method="GETLIST">
+            <metaData>
+              <inputParams xsi:type="sapDatasourceExtension:ESapStructure" name="DESTINATION_TO" dataType="STRUCTURE" description="Select destination" structure="true" length="4" optional="true">
+                <columns name="AIRPORTID" description="Airport Code" type="CHAR" length="3" optional="true"/>
+                <columns name="CITY" description="City" type="CHAR" length="20" optional="true"/>
+                <columns name="COUNTR" description="Country Indic." type="CHAR" length="3" optional="true"/>
+                <columns name="COUNTR_ISO" description="ISO country code" type="CHAR" length="2" optional="true"/>
+              </inputParams>
+              <inputParams name="MAX_ROWS" dataType="INT" description="Maximum Number of Lines of Hits" length="4" optional="true"/>
+              <inputParams name="AIRLINE" dataType="CHAR" description="Select airline" length="3" optional="true"/>
+              <inputParams xsi:type="sapDatasourceExtension:ESapStructure" name="DESTINATION_FROM" dataType="STRUCTURE" description="Select departure city" structure="true" length="4" optional="true">
+                <columns name="AIRPORTID" description="Airport Code" type="CHAR" length="3" optional="true"/>
+                <columns name="CITY" description="City" type="CHAR" length="20" optional="true"/>
+                <columns name="COUNTR" description="Country Indic." type="CHAR" length="3" optional="true"/>
+                <columns name="COUNTR_ISO" description="ISO country code" type="CHAR" length="2" optional="true"/>
+              </inputParams>
+              <tables name="EXTENSION_IN" dataType="TABLE" description="Import customer enhancements" table="true" length="5" optional="true" type="OUTPUT">
+                <columns name="STRUCTURE" description="Structure name of  BAPI table extension" type="CHAR" length="30"/>
+                <columns name="VALUEPART1" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+                <columns name="VALUEPART2" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+                <columns name="VALUEPART3" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+                <columns name="VALUEPART4" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+              </tables>
+              <tables name="EXTENSION_OUT" dataType="TABLE" description="Export customer enhancements" table="true" length="5" optional="true" type="OUTPUT">
+                <columns name="STRUCTURE" description="Structure name of  BAPI table extension" type="CHAR" length="30"/>
+                <columns name="VALUEPART1" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+                <columns name="VALUEPART2" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+                <columns name="VALUEPART3" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+                <columns name="VALUEPART4" description="Data part of BAPI extension parameter" type="CHAR" length="240"/>
+              </tables>
+              <tables name="DATE_RANGE" dataType="TABLE" description="Selection range for flight date" table="true" length="4" optional="true" type="OUTPUT">
+                <columns name="SIGN" description="Inclusion/exclusion criterion SIGN for range tables" type="CHAR" length="1"/>
+                <columns name="OPTION" description="Selection operator OPTION for range tables" type="CHAR" length="2"/>
+                <columns name="LOW" description="Flight date" type="DATE" length="8"/>
+                <columns name="HIGH" description="Flight date" type="DATE" length="8"/>
+              </tables>
+              <tables name="RETURN" dataType="TABLE" description="Return Messages" table="true" length="14" optional="true" type="OUTPUT">
+                <columns name="TYPE" description="Message type: S Success, E Error, W Warning, I Info, A Abort" type="CHAR" length="1"/>
+                <columns name="ID" description="Message Class" type="CHAR" length="20"/>
+                <columns name="NUMBER" description="Message Number" type="NUM" length="3"/>
+                <columns name="MESSAGE" description="Message Text" type="CHAR" length="220"/>
+                <columns name="LOG_NO" description="Application log: log number" type="CHAR" length="20"/>
+                <columns name="LOG_MSG_NO" description="Application log: Internal message serial number" type="NUM" length="6"/>
+                <columns name="MESSAGE_V1" description="Message Variable" type="CHAR" length="50"/>
+                <columns name="MESSAGE_V2" description="Message Variable" type="CHAR" length="50"/>
+                <columns name="MESSAGE_V3" description="Message Variable" type="CHAR" length="50"/>
+                <columns name="MESSAGE_V4" description="Message Variable" type="CHAR" length="50"/>
+                <columns name="PARAMETER" description="Parameter Name" type="CHAR" length="32"/>
+                <columns name="ROW" description="Lines in parameter" type="INT" length="4"/>
+                <columns name="FIELD" description="Field in parameter" type="CHAR" length="30"/>
+                <columns name="SYSTEM" description="Logical system from which message originates" type="CHAR" length="10"/>
+              </tables>
+              <tables name="FLIGHT_LIST" dataType="TABLE" description="List of flights" table="true" length="14" optional="true" type="OUTPUT" selectedForOutput="true">
+                <columns name="AIRLINEID" description="Airline Code" type="CHAR" length="3"/>
+                <columns name="AIRLINE" description="Airline name" type="CHAR" length="20"/>
+                <columns name="CONNECTID" description="Flight Connection Number" type="NUM" length="4"/>
+                <columns name="FLIGHTDATE" description="Flight date" type="DATE" length="8"/>
+                <columns name="AIRPORTFR" description="Departure airport" type="CHAR" length="3"/>
+                <columns name="CITYFROM" description="Departure city" type="CHAR" length="20"/>
+                <columns name="AIRPORTTO" description="Destination airport" type="CHAR" length="3"/>
+                <columns name="CITYTO" description="Arrival city" type="CHAR" length="20"/>
+                <columns name="DEPTIME" description="Departure time" type="TIME" length="6"/>
+                <columns name="ARRTIME" description="Arrival time" type="TIME" length="6"/>
+                <columns name="ARRDATE" description="Arrival date" type="DATE" length="8"/>
+                <columns name="PRICE" description="Standard listed airfare for flight" type="BCD" length="12"/>
+                <columns name="CURR" description="Local currency of airline" type="CHAR" length="5"/>
+                <columns name="CURR_ISO" description="ISO currency code" type="CHAR" length="3"/>
+              </tables>
+            </metaData>
+          </sapMethod>
+        </definition>
+      </remoteOp>
+    </read>
+    <publish/>
+    <subscribe>
+      <downloadData/>
+    </subscribe>
+  </mObjects>
+  <rootPackage name="/" mObjects="_tP6DAIXwEeKoR86Cq9D2eQ"/>
+  <personalizationKeys nullable="false" name="username" type="STRING">
+    <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+  </personalizationKeys>
+  <personalizationKeys nullable="false" name="password" type="STRING">
+    <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+  </personalizationKeys>
+  <personalizationKeys nullable="false" name="pkAirline" description="" type="STRING" defaultValue="" length="3" owner="Transient">
+    <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+  </personalizationKeys>
+  <publications name="Default" mObjects="_tP6DAIXwEeKoR86Cq9D2eQ" checkInterval="600" default="true"/>
+  <caches name="Default" default="true" mObjects="_tP6DAIXwEeKoR86Cq9D2eQ">
+    <policy xsi:type="uepmodels:EOnDemandPolicy">
+      <coherenceWindow/>
+    </policy>
+  </caches>
+</uepmodels:EMODiagram>
